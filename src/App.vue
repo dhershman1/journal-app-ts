@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide, reactive, InjectionKey, inject } from 'vue'
+import { provide, reactive } from 'vue'
 import { userInjectionKey } from './injectionKeys'
 import TheHeader from '@/components/TheHeader.vue'
 import EntryEditor from './components/EntryEditor.vue'
