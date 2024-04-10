@@ -8,6 +8,9 @@
     "composite": true,
     "noEmit": true,
     "baseUrl": ".",
+    "types": [
+      "@vue-macros/reactivity-transform/macros-global"
+    ],
     "paths": {
       "@/*": ["./src/*"]
     }

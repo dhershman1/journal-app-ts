@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { provide, reactive, InjectionKey, inject } from 'vue'
+import { userInjectionKey } from './injectionKeys'
 import TheHeader from '@/components/TheHeader.vue'
 import EntryEditor from './components/EntryEditor.vue'
 import EntryCard from '@/components/EntryCard.vue'
@@ -13,7 +14,7 @@ const user: User = reactive({
   settings: []
 })
 
-console.log(user)
+provide(userInjectionKey, user)
 
 function handleCreateEntry (entry: Entry) {
   entries.unshift(entry)
@@ -26,7 +27,7 @@ function handleCreateEntry (entry: Entry) {
     <EntryEditor @create="handleCreateEntry"/>
     <ul>
       <li v-for="e in entries" :key=e.id>
-        <EntryCard />
+        <EntryCard :entry="e" />
       </li>
     </ul>
   </main>
